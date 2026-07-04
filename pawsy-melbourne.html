@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Hospital of Melbourne | Exceptional Care for Your Pet</title>
+<meta name="description" content="Animal Hospital of Melbourne provides exceptional veterinary care to Melbourne. Appointments, vaccinations, dental, surgery and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Melbourne brand palette */
+    --navy:#1f5c85;
+    --navy-deep:#17456b;
+    --green:#8dc63f;
+    --green-dark:#6faf2a;
+    --green-bright:#9ad84f;
+    --cyan:#29abe2;
+    --cyan-dark:#1f7ec2;
+    --paper:#ffffff;
+    --paper-tint:#eef6fb;
+    --ink:#17456b;
+    --slate:#4a6379;
+    --hairline:#d6e6f2;
+    --shadow:0 10px 30px rgba(23,69,107,.14);
+    --radius:18px;
+    --font:'Nunito', Arial, sans-serif;
+
+    /* Widget variable remap (Pawsy reads these) */
+    --bg-top:#ffffff;
+    --bg-bottom:#eef6fb;
+    --card:#ffffff;
+    --amber:#8dc63f;
+    --orange:#76b62e;
+    --orange-light:#9ad84f;
+    --heading:#17456b;
+    --body:#4a6379;
+    --highlight:#1f7ec2;
+    --line:#d6e6f2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font);background:var(--paper);color:var(--slate);line-height:1.6;}
+  h1,h2,h3{color:var(--ink);font-weight:900;line-height:1.15;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  section{padding:84px 0;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font);font-weight:800;font-size:16px;text-decoration:none;
+    padding:14px 30px;border-radius:999px;border:none;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-green{background:linear-gradient(90deg,var(--green),var(--green-dark));color:#fff;box-shadow:0 10px 24px rgba(111,175,42,.35);}
+  .btn-green:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(111,175,42,.45);}
+  .btn-white{background:#fff;color:var(--navy-deep);box-shadow:0 8px 22px rgba(0,0,0,.18);}
+  .btn-white:hover{transform:translateY(-2px);background:var(--paper-tint);}
+  .eyebrow{
+    display:inline-block;color:var(--green-dark);font-weight:900;font-size:13px;
+    letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;
+  }
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+  .sec-head h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px;}
+
+  /* ---------- TOP UTILITY BAR ---------- */
+  .topbar{background:var(--green);color:#fff;font-weight:800;font-size:14px;}
+  .topbar-inner{max-width:1100px;margin:0 auto;padding:9px 24px;display:flex;gap:28px;align-items:center;justify-content:flex-end;flex-wrap:wrap;}
+  .topbar a{color:#fff;text-decoration:none;}
+  .topbar a:hover{text-decoration:underline;}
+  .topbar .appt{letter-spacing:1px;text-transform:uppercase;}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:500;background:var(--navy);box-shadow:0 4px 18px rgba(23,69,107,.25);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1100px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .logo-mark{
+    width:48px;height:48px;border-radius:50%;background:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2);
+  }
+  .logo-mark svg{width:26px;height:26px;fill:var(--green);}
+  .logo-name{color:#fff;font-weight:900;font-size:19px;line-height:1.15;}
+  .logo-name span{display:block;color:var(--green-bright);font-size:14px;font-weight:800;}
+  .nav-links{display:flex;align-items:center;gap:26px;}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:800;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;opacity:.92;transition:color .15s, opacity .15s;}
+  .nav-links a:hover{color:var(--green-bright);opacity:1;}
+  @media (max-width:820px){.nav-links{display:none;}}
+
+  /* ---------- ACTION STRIP ---------- */
+  .strip{display:grid;grid-template-columns:1fr 1fr 1fr;}
+  .strip a{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    color:#fff;text-decoration:none;font-weight:800;font-size:17px;padding:18px 10px;
+    transition:filter .15s ease;
+  }
+  .strip a:hover{filter:brightness(1.08);}
+  .strip .s-appt{background:var(--cyan);}
+  .strip .s-call{background:var(--green);}
+  .strip .s-loc{background:var(--navy);}
+  @media (max-width:640px){.strip a{font-size:14px;padding:14px 6px;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
+    padding:96px 0 0;position:relative;overflow:hidden;
+  }
+  .hero-inner{max-width:900px;margin:0 auto;padding:0 24px 130px;text-align:center;position:relative;z-index:2;}
+  .hero .kicker{
+    color:#fff;font-weight:800;font-size:clamp(20px,2.6vw,30px);letter-spacing:6px;
+    text-transform:uppercase;display:flex;align-items:center;gap:18px;justify-content:center;
+  }
+  .hero .kicker::before,.hero .kicker::after{content:"";height:2px;width:70px;background:rgba(255,255,255,.55);}
+  .hero .big{
+    color:#fff;font-weight:900;font-size:clamp(56px,9vw,104px);letter-spacing:4px;
+    text-transform:uppercase;line-height:1.05;margin:6px 0;
+  }
+  .hero .tail{
+    color:#fff;font-weight:800;font-size:clamp(18px,2.4vw,28px);letter-spacing:5px;
+    text-transform:uppercase;display:flex;align-items:center;gap:18px;justify-content:center;margin-bottom:34px;
+  }
+  .hero .tail::before,.hero .tail::after{content:"";height:2px;width:70px;background:rgba(255,255,255,.55);}
+  .hero p.lead{color:rgba(255,255,255,.92);font-size:18px;max-width:600px;margin:0 auto 34px;font-weight:600;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .swoosh{display:block;width:100%;height:auto;margin-bottom:-1px;position:relative;z-index:1;}
+
+  /* ---------- WELCOME ---------- */
+  .welcome-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center;}
+  .welcome-visual{
+    background:linear-gradient(160deg,var(--navy),var(--navy-deep));
+    border-radius:26px;min-height:320px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;
+    box-shadow:0 18px 40px rgba(23,69,107,.3);
+  }
+  .welcome-visual::after{
+    content:"";position:absolute;bottom:-40px;left:-10%;width:120%;height:110px;
+    background:var(--green);border-radius:50% 50% 0 0;opacity:.95;
+  }
+  .welcome-visual .big{font-size:84px;line-height:1;position:relative;z-index:2;}
+  .welcome-visual .cap{color:#fff;font-weight:900;font-size:18px;position:relative;z-index:2;text-align:center;padding:0 20px;}
+  .welcome h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:18px;}
+  .welcome p{margin-bottom:16px;font-size:16.5px;}
+  .welcome p b{color:var(--ink);}
+  @media (max-width:860px){.welcome-grid{grid-template-columns:1fr;}}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--paper-tint);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .svc{
+    background:#fff;border:1.5px solid var(--hairline);border-radius:var(--radius);
+    padding:28px 26px;transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .svc-icon{
+    width:54px;height:54px;border-radius:50%;font-size:25px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+    background:linear-gradient(135deg,#e8f5d5,#d3ecb0);
+  }
+  .svc h3{font-size:18.5px;margin-bottom:8px;}
+  .svc p{font-size:14.5px;}
+  @media (max-width:860px){.svc-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+
+  /* ---------- WHY ---------- */
+  .why-item{display:flex;gap:16px;margin-bottom:24px;}
+  .why-num{
+    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    background:var(--green);color:#fff;font-weight:900;font-size:17px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(111,175,42,.35);
+  }
+  .why-item h3{font-size:18px;margin-bottom:4px;}
+  .why-item p{font-size:15px;}
+  .why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center;}
+  .why-card{
+    background:var(--navy);border-radius:26px;padding:38px 34px;color:#fff;
+    box-shadow:0 18px 40px rgba(23,69,107,.3);
+  }
+  .why-card h3{color:#fff;font-size:22px;margin-bottom:12px;}
+  .why-card p{color:rgba(255,255,255,.92);font-size:15.5px;margin-bottom:18px;}
+  .why-card .tag{
+    display:inline-block;background:var(--green);color:#fff;font-weight:900;
+    font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:7px 16px;border-radius:999px;margin-bottom:16px;
+  }
+  @media (max-width:860px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---------- PRICING ---------- */
+  .pricing{background:var(--paper-tint);}
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:22px;}
+  .price{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 22px;text-align:center;border-top:5px solid var(--green);}
+  .price .amt{font-size:26px;font-weight:900;color:var(--ink);margin:8px 0 4px;}
+  .price .amt small{font-size:14px;color:var(--slate);font-weight:700;}
+  .price .label{font-weight:900;color:var(--cyan-dark);font-size:13px;letter-spacing:1px;text-transform:uppercase;}
+  .price p{font-size:13.5px;}
+  .price-note{
+    text-align:center;font-size:14px;font-weight:700;max-width:660px;margin:0 auto;
+    background:#e8f5d5;border-radius:14px;padding:14px 20px;color:#4c7a1a;
+  }
+  @media (max-width:860px){.price-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.price-grid{grid-template-columns:1fr;}}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .quote{background:#fff;border:1.5px solid var(--hairline);border-radius:var(--radius);padding:28px;}
+  .quote .stars{color:var(--green);font-size:17px;letter-spacing:2px;margin-bottom:12px;}
+  .quote p{font-size:15px;margin-bottom:16px;}
+  .quote .who{font-weight:900;color:var(--ink);font-size:14.5px;}
+  .quote .who span{display:block;font-weight:700;color:var(--slate);font-size:13px;}
+  @media (max-width:860px){.quote-grid{grid-template-columns:1fr;}}
+
+  /* ---------- VISIT ---------- */
+  .visit{background:var(--paper-tint);}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .visit-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;}
+  .visit-card h3{font-size:20px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .visit-card h3 .ico{
+    width:38px;height:38px;border-radius:50%;font-size:17px;flex-shrink:0;color:#fff;
+    background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .visit-card p{font-size:15px;margin-bottom:8px;}
+  .visit-card p b{color:var(--ink);}
+  @media (max-width:760px){.visit-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:linear-gradient(100deg,var(--green-dark),var(--green) 60%,var(--green-bright));
+    border-radius:28px;padding:56px 40px;text-align:center;
+    box-shadow:0 20px 46px rgba(111,175,42,.35);
+  }
+  .cta-band h2{color:#fff;font-size:clamp(26px,3.4vw,38px);margin-bottom:12px;}
+  .cta-band p{color:rgba(255,255,255,.96);font-size:17px;font-weight:700;margin-bottom:28px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.88);padding:46px 0 120px;text-align:center;font-size:14px;font-weight:600;}
+  footer .foot-logo{font-weight:900;color:#fff;font-size:17px;margin-bottom:6px;}
+  footer .credit{margin-top:14px;font-size:13px;color:rgba(255,255,255,.75);}
+  footer .credit a{color:var(--green-bright);font-weight:800;text-decoration:none;}
+  footer .credit a:hover{text-decoration:underline;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+<style>
+  /* ============ PAWSY WIDGET ============ */
+  #pawsy-launcher{
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    width:64px;height:64px;border:none;border-radius:50%;cursor:pointer;
+    background:linear-gradient(135deg,var(--amber),var(--orange) 55%,var(--orange-light));
+    box-shadow:0 12px 28px rgba(234,88,12,.38);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  #pawsy-launcher:hover{transform:scale(1.07);box-shadow:0 14px 34px rgba(234,88,12,.46);}
+  #pawsy-launcher:focus-visible{outline:3px solid var(--heading);outline-offset:3px;}
+  #pawsy-launcher svg{width:32px;height:32px;fill:#fff;transition:transform .18s ease;}
+  #pawsy-launcher.open svg.paw{display:none;}
+  #pawsy-launcher svg.close{display:none;width:26px;height:26px;}
+  #pawsy-launcher.open svg.close{display:block;}
+
+  #pawsy-widget{
+    position:fixed;bottom:104px;right:24px;z-index:9998;
+    width:376px;max-width:calc(100vw - 32px);
+    height:600px;max-height:calc(100vh - 130px);
+    background:linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+    border-radius:var(--radius);
+    box-shadow:0 24px 60px rgba(28,18,7,.22);
+    display:flex;flex-direction:column;overflow:hidden;
+    opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;
+    transition:opacity .22s ease, transform .22s ease;
+  }
+  #pawsy-widget.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+
+  .pawsy-header{
+    background:linear-gradient(90deg,var(--amber),var(--orange) 60%,var(--orange-light));
+    padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;
+  }
+  .pawsy-avatar{
+    width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.22);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .pawsy-avatar svg{width:24px;height:24px;fill:#fff;}
+  .pawsy-title{color:#fff;font-weight:900;font-size:19px;line-height:1.1;letter-spacing:.2px;}
+  .pawsy-sub{color:rgba(255,255,255,.92);font-size:11.5px;font-weight:600;margin-top:2px;display:flex;align-items:center;gap:6px;}
+  .pawsy-dot{width:8px;height:8px;border-radius:50%;background:#dcfce7;box-shadow:0 0 0 3px rgba(255,255,255,.25);}
+
+  .pawsy-messages{
+    flex:1;overflow-y:auto;padding:18px 16px 10px;scroll-behavior:smooth;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .pawsy-messages::-webkit-scrollbar{width:6px;}
+  .pawsy-messages::-webkit-scrollbar-thumb{background:rgba(122,92,58,.25);border-radius:6px;}
+
+  .msg{max-width:82%;padding:11px 15px;border-radius:16px;font-size:14.5px;
+    line-height:1.55;word-wrap:break-word;animation:msgIn .22s ease both;}
+  @keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .msg.bot{
+    background:var(--card);color:var(--body);align-self:flex-start;
+    border-bottom-left-radius:6px;box-shadow:0 3px 12px rgba(122,92,58,.10);
+  }
+  .msg.bot strong{color:var(--heading);}
+  .msg.bot a{color:var(--highlight);font-weight:800;text-decoration:underline;}
+  .msg.user{
+    background:linear-gradient(135deg,var(--amber),var(--orange));color:#fff;
+    align-self:flex-end;border-bottom-right-radius:6px;font-weight:600;
+    box-shadow:0 3px 12px rgba(234,88,12,.22);
+  }
+
+  .pawsy-chips{display:flex;flex-wrap:wrap;gap:8px;align-self:flex-start;animation:msgIn .25s ease both;}
+  .pawsy-chip{
+    background:var(--card);border:1.5px solid #f3d9b8;color:var(--highlight);
+    font-family:var(--font);font-weight:800;font-size:13px;
+    padding:8px 14px;border-radius:999px;cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .pawsy-chip:hover{background:#fff3e4;transform:translateY(-1px);}
+  .pawsy-chip:focus-visible{outline:2px solid var(--highlight);outline-offset:2px;}
+
+  .typing{display:flex;gap:5px;padding:14px 16px;background:var(--card);
+    border-radius:16px;border-bottom-left-radius:6px;align-self:flex-start;
+    box-shadow:0 3px 12px rgba(122,92,58,.10);}
+  .typing span{width:7px;height:7px;border-radius:50%;background:var(--orange-light);
+    animation:bounce 1.1s infinite ease-in-out;}
+  .typing span:nth-child(2){animation-delay:.15s;}
+  .typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.5;}30%{transform:translateY(-5px);opacity:1;}}
+
+  .pawsy-inputrow{
+    display:flex;gap:10px;padding:12px 14px 14px;flex-shrink:0;
+    background:rgba(255,253,249,.65);backdrop-filter:blur(4px);
+  }
+  #pawsy-input{
+    flex:1;border:1.5px solid #f3d9b8;background:var(--card);color:var(--heading);
+    font-family:var(--font);font-size:14.5px;font-weight:600;
+    padding:12px 16px;border-radius:999px;outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  #pawsy-input::placeholder{color:#c9a87e;font-weight:600;}
+  #pawsy-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,.15);}
+  #pawsy-send{
+    width:46px;height:46px;border:none;border-radius:50%;cursor:pointer;flex-shrink:0;
+    background:linear-gradient(135deg,var(--amber),var(--orange),var(--orange-light));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(234,88,12,.3);transition:transform .15s ease;
+  }
+  #pawsy-send:hover{transform:scale(1.08);}
+  #pawsy-send:focus-visible{outline:3px solid var(--heading);outline-offset:2px;}
+  #pawsy-send svg{width:20px;height:20px;fill:#fff;margin-left:2px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .pawsy-messages{scroll-behavior:auto;}
+  }
+  @media (max-width:420px){
+    #pawsy-widget{right:16px;bottom:96px;height:560px;}
+    #pawsy-launcher{right:16px;bottom:16px;}
+  }
+</style>
+<style>
+  /* Pawsy widget: Melbourne brand overrides */
+  .pawsy-header{background:linear-gradient(90deg,var(--navy-deep),var(--navy));}
+  #pawsy-launcher{background:linear-gradient(135deg,var(--green),var(--green-dark));box-shadow:0 12px 28px rgba(111,175,42,.42);}
+  #pawsy-launcher:hover{box-shadow:0 14px 34px rgba(111,175,42,.5);}
+  .msg.user{background:linear-gradient(135deg,var(--green),var(--green-dark));box-shadow:0 3px 12px rgba(111,175,42,.25);}
+  #pawsy-send{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));box-shadow:0 6px 16px rgba(31,126,194,.35);}
+  #pawsy-input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(41,171,226,.18);}
+  .pawsy-chip{color:var(--cyan-dark);border-color:var(--hairline);}
+  .pawsy-chip:hover{background:#eaf5fc;}
+  .typing span{background:var(--green);}
+  .msg.bot{box-shadow:0 3px 12px rgba(23,69,107,.1);}
+
+  /* Proactive teaser popup */
+  #pawsy-teaser{
+    position:fixed;bottom:106px;right:30px;z-index:9997;
+    background:#fff;border-radius:16px;box-shadow:0 16px 40px rgba(23,69,107,.28);
+    padding:18px 46px 14px 20px;max-width:290px;cursor:pointer;
+    opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  #pawsy-teaser.show{opacity:1;transform:translateY(0);pointer-events:auto;}
+  #pawsy-teaser::after{
+    content:"";position:absolute;bottom:-7px;right:26px;width:16px;height:16px;
+    background:#fff;transform:rotate(45deg);border-radius:3px;
+    box-shadow:6px 6px 12px rgba(23,69,107,.08);
+  }
+  #pawsy-teaser .teaser-text{color:var(--navy-deep);font-weight:800;font-size:15px;line-height:1.45;}
+  #pawsy-teaser .teaser-brand{
+    margin-top:10px;display:flex;align-items:center;gap:6px;
+    font-size:11.5px;font-weight:700;color:#8aa0b3;
+  }
+  #pawsy-teaser .teaser-brand svg{width:15px;height:15px;fill:var(--green);}
+  #pawsy-teaser .teaser-brand b{color:var(--navy-deep);font-weight:900;font-size:12.5px;}
+  #pawsy-teaser-close{
+    position:absolute;top:10px;right:10px;width:26px;height:26px;border:none;cursor:pointer;
+    border-radius:50%;background:#eef3f8;color:#5b7488;font-size:14px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+    transition:background .15s ease;
+  }
+  #pawsy-teaser-close:hover{background:#dfe9f2;}
+  #pawsy-teaser-close:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
+  @media (max-width:420px){#pawsy-teaser{right:16px;bottom:96px;max-width:calc(100vw - 90px);}}
+
+  /* Meet Our Doctors */
+  .docs .doc{display:grid;grid-template-columns:230px 1fr;gap:38px;align-items:start;margin-bottom:54px;}
+  .docs .doc:last-child{margin-bottom:0;}
+  .doc-photo{position:relative;width:210px;height:210px;margin:10px 0 0 10px;}
+  .doc-photo::before{
+    content:"";position:absolute;top:-10px;left:-10px;width:100%;height:100%;
+    background:var(--green);z-index:0;
+  }
+  .doc-photo .ph{
+    position:relative;z-index:1;width:100%;height:100%;
+    background:linear-gradient(160deg,#eaf5fc,#d7ecf8);
+    display:flex;align-items:center;justify-content:center;font-size:88px;
+    box-shadow:0 10px 26px rgba(23,69,107,.16);
+  }
+  .doc h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:4px;}
+  .doc .role{font-weight:900;color:var(--slate);font-size:16.5px;margin-bottom:14px;}
+  .doc p{font-size:15.5px;margin-bottom:12px;}
+  .doc .fav{
+    display:inline-block;background:#e8f5d5;color:#4c7a1a;font-weight:800;font-size:13px;
+    padding:7px 14px;border-radius:999px;margin-top:2px;
+  }
+  @media (max-width:720px){
+    .docs .doc{grid-template-columns:1fr;gap:20px;}
+    .doc-photo{width:180px;height:180px;}
+  }
+
+  /* Opening hours card */
+  .visit-grid{grid-template-columns:1fr 1fr 1fr;}
+  @media (max-width:900px){.visit-grid{grid-template-columns:1fr;}}
+  .hrs-row{
+    display:flex;justify-content:space-between;gap:10px;padding:10px 0;
+    border-bottom:1.5px dashed var(--hairline);font-size:14.5px;font-weight:700;
+  }
+  .hrs-row:last-of-type{border-bottom:none;}
+  .hrs-row .d{color:var(--ink);}
+  .hrs-row .closed{color:var(--cyan-dark);}
+  .hrs-note{
+    margin-top:14px;background:#e8f5d5;border-radius:12px;padding:11px 14px;
+    font-size:13px;font-weight:800;color:#4c7a1a;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:0390000000">📞 (03) 9000 0000</a>
+    <span>123 COLLINS STREET, MELBOURNE VIC 3000</span>
+    <a class="appt" href="https://calendly.com/pawsy1432/30min" target="_blank" rel="noopener">Appointment</a>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 13.2c-2.9 0-6.2 2-6.2 4.6 0 1.6 1.2 2.6 2.9 2.6 1.1 0 2-.5 3.3-.5s2.2.5 3.3.5c1.7 0 2.9-1 2.9-2.6 0-2.6-3.3-4.6-6.2-4.6zM6.6 8.4c-.3-1.6-1.5-2.7-2.7-2.5-1.2.2-1.9 1.7-1.6 3.3.3 1.6 1.5 2.7 2.7 2.5 1.2-.3 1.9-1.7 1.6-3.3zm3.1-1.1c1.3 0 2.3-1.4 2.3-3.1S11 1.1 9.7 1.1 7.4 2.5 7.4 4.2s1 3.1 2.3 3.1zm7.7 3.6c1.2.2 2.4-.9 2.7-2.5.3-1.6-.4-3-1.6-3.3-1.2-.2-2.4.9-2.7 2.5-.3 1.6.4 3.1 1.6 3.3zm-3.1-3.6c1.3 0 2.3-1.4 2.3-3.1s-1-3.1-2.3-3.1S12 2.5 12 4.2s1 3.1 2.3 3.1z" transform="translate(0 1)"/></svg>
+      </span>
+      <span class="logo-name">Animal Hospital<span>of Melbourne</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#welcome">About Us</a>
+      <a href="#doctors">Our Doctors</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">For Clients</a>
+      <a href="#visit">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="strip">
+  <a class="s-appt" href="https://calendly.com/pawsy1432/30min" target="_blank" rel="noopener">📅 Appointments</a>
+  <a class="s-call" href="tel:0390000000">📞 Call Now</a>
+  <a class="s-loc" href="#visit">📍 Location</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="kicker">Exceptional</div>
+    <div class="big">Care</div>
+    <div class="tail">For Your Pet</div>
+    <p class="lead">Trusted veterinary care in the heart of Melbourne, where every patient is treated like family.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-green" href="https://calendly.com/pawsy1432/30min" target="_blank" rel="noopener">Request Appointment</a>
+      <button class="btn btn-white" type="button" onclick="document.getElementById('pawsy-launcher').click()">🐾 Chat with Pawsy</button>
+    </div>
+  </div>
+  <svg class="swoosh" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,120 C360,20 900,10 1440,95 L1440,140 L0,140 Z" fill="#8dc63f"/>
+    <path d="M0,140 C380,55 920,45 1440,120 L1440,140 Z" fill="#ffffff"/>
+  </svg>
+</header>
+
+<section id="welcome" class="welcome">
+  <div class="wrap welcome-grid">
+    <div class="welcome-visual" aria-hidden="true">
+      <span class="big">🐶🐱</span>
+      <span class="cap">Serving Melbourne families for over 30 years</span>
+    </div>
+    <div>
+      <span class="eyebrow">Welcome</span>
+      <h2>Welcome to Animal Hospital of Melbourne</h2>
+      <p>For more than <b>30 years</b>, our hospital has been part of the Melbourne community, providing high quality veterinary medicine with the warmth of a neighborhood practice. Our clients aren't just clients, they're family.</p>
+      <p>Whether you're new to the area, welcoming a new four legged family member, or simply looking for an experienced vet who treats you both with respect and compassion, we'd love to meet you.</p>
+      <p><b>Have a question right now?</b> Pawsy, our chat assistant in the corner, can answer questions and help you request an appointment any time, day or night.</p>
+    </div>
+  </div>
+</section>
+
+<section class="docs" id="doctors">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">About Us</span>
+      <h2>Meet our doctors</h2>
+      <p>Sample team profiles for this demo. Your real doctors, photos, and bios drop straight in here.</p>
+    </div>
+
+    <div class="doc">
+      <div class="doc-photo" aria-hidden="true"><div class="ph">👩‍⚕️</div></div>
+      <div>
+        <h3>Dr. Amelia Santos</h3>
+        <div class="role">Co-Owner, Veterinarian</div>
+        <p>Dr. Santos grew up on a family farm surrounded by dogs, goats, and one very opinionated parrot, so a life in veterinary medicine always felt inevitable. After earning her veterinary degree, she spent a decade in companion animal practice before becoming Co-Owner here in Melbourne.</p>
+        <p>She has particular interests in wellness care, preventative medicine, and client education, and she's happiest when a nervous pet leaves the exam room with a wagging tail.</p>
+        <span class="fav">At home: two rescue Labradors, Biscuit and Waffle</span>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-photo" aria-hidden="true"><div class="ph">👨‍⚕️</div></div>
+      <div>
+        <h3>Dr. Marcus Bell</h3>
+        <div class="role">Veterinarian, Surgery &amp; Dentistry</div>
+        <p>Dr. Bell found his calling during a college volunteer shift at an animal shelter, where he discovered that surgery combined the precision he loved with the outcomes that mattered most. He completed advanced training in soft tissue surgery and veterinary dentistry.</p>
+        <p>Patients know him for his calm hands, and their owners know him for explaining every procedure in plain language before it happens.</p>
+        <span class="fav">At home: a senior Boston Terrier named Pepper</span>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div class="doc-photo" aria-hidden="true"><div class="ph">👩‍⚕️</div></div>
+      <div>
+        <h3>Dr. Priya Nair</h3>
+        <div class="role">Associate Veterinarian</div>
+        <p>Dr. Nair is our resident cat whisperer and senior pet advocate. After starting her career in emergency medicine, she moved to general practice to build the long term relationships with families that she loves most about this work.</p>
+        <p>She focuses on feline medicine, senior wellness plans, and helping pets age comfortably, and she's a firm believer that treats fix almost any exam room mood.</p>
+        <span class="fav">At home: three cats who supervise everything she does</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Our Services</span>
+      <h2>Complete care, all under one roof</h2>
+      <p>Comprehensive veterinary medicine for dogs, cats, and pocket pets in Melbourne.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="svc-icon">🩺</div><h3>Wellness Exams</h3><p>Thorough, unhurried checkups where our doctors take time to listen, examine, and explain every step.</p></div>
+      <div class="svc"><div class="svc-icon">💉</div><h3>Vaccinations</h3><p>Full puppy, kitten, and adult vaccination programs with reminders so boosters never slip by.</p></div>
+      <div class="svc"><div class="svc-icon">🦷</div><h3>Dental Care</h3><p>Cleanings, extractions, and home care guidance to keep tails wagging and breath fresh.</p></div>
+      <div class="svc"><div class="svc-icon">🏥</div><h3>Desexing &amp; Surgery</h3><p>Day procedures with morning drop off, afternoon pickup, and careful pain management throughout.</p></div>
+      <div class="svc"><div class="svc-icon">📍</div><h3>Microchipping</h3><p>Quick, gentle chipping with registration on the Victorian pet registry included.</p></div>
+      <div class="svc"><div class="svc-icon">💚</div><h3>Senior Pet Care</h3><p>Tailored wellness plans, mobility support, and bloodwork to help older pets thrive for years.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap why-grid">
+    <div>
+      <span class="eyebrow">Why Families Choose Us</span>
+      <h2 style="font-size:clamp(28px,3.4vw,38px);margin-bottom:28px;">Care that feels different from the first hello</h2>
+      <div class="why-item"><div class="why-num">1</div><div><h3>30+ years in the community</h3><p>Generations of Melbourne pets have grown up with us, and our clients are more like family.</p></div></div>
+      <div class="why-item"><div class="why-num">2</div><div><h3>Transparent estimates</h3><p>Clear pricing before any treatment begins, so you're never surprised at checkout.</p></div></div>
+      <div class="why-item"><div class="why-num">3</div><div><h3>Help around the clock</h3><p>Pawsy, our chat assistant, answers questions and helps you request appointments 24/7, even after hours.</p></div></div>
+    </div>
+    <div class="why-card">
+      <span class="tag">New Patients Welcome</span>
+      <h3>New to Melbourne?</h3>
+      <p>Bring any previous vet records if you have them and we'll take care of the rest. Same week appointments are usually available.</p>
+      <a class="btn btn-green" href="https://calendly.com/pawsy1432/30min" target="_blank" rel="noopener">Request Appointment</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">For Clients</span>
+      <h2>Honest, upfront pricing</h2>
+      <p>Indicative ranges based on typical Melbourne clinic rates.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price"><div class="label">Wellness Exam</div><div class="amt">$75 <small>to $95</small></div><p>Standard checkup with a full physical exam.</p></div>
+      <div class="price"><div class="label">Vaccinations</div><div class="amt">$95 <small>to $130</small></div><p>Includes a health check with every vaccination visit.</p></div>
+      <div class="price"><div class="label">Desexing</div><div class="amt">$250 <small>to $450</small></div><p>Varies by species and size, includes pain relief.</p></div>
+      <div class="price"><div class="label">Dental Cleaning</div><div class="amt">$350 <small>to $600</small></div><p>Full scale and polish under general anaesthetic.</p></div>
+    </div>
+    <p class="price-note">Final pricing depends on your pet's size, age, and specific needs, so we'll confirm the exact cost at your visit.</p>
+  </div>
+</section>
+
+<section class="quotes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Happy Families</span>
+      <h2>Loved by Melbourne pets and their people</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="quote"><div class="stars">★★★★★</div><p>"Bruno used to shake at the vet. Now he pulls me through the door. The team here is patient, kind, and genuinely brilliant."</p><div class="who">Sarah M. <span>Bruno's mom, Labrador</span></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"Asked the little chat bubble a question at 11pm and had an appointment request sorted in under a minute. The care was just as impressive."</p><div class="who">James T. <span>Rex &amp; Daisy's dad</span></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"They explained Milo's dental estimate line by line before doing anything. Zero surprises, and his teeth look amazing."</p><div class="who">Anna L. <span>Milo's mom, Ragdoll</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Come see us in Melbourne</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <h3><span class="ico">🕐</span>Opening hours</h3>
+        <div class="hrs-row"><span class="d">Monday to Friday</span><span>8am to 5pm</span></div>
+        <div class="hrs-row"><span class="d">Saturday</span><span>9am to 2pm</span></div>
+        <div class="hrs-row"><span class="d">Sunday &amp; Public Holidays</span><span class="closed">Closed</span></div>
+        <div class="hrs-note">Urgent concern? Call (03) 9000 0000 or head to your nearest emergency vet.</div>
+      </div>
+      <div class="visit-card">
+        <h3><span class="ico">📍</span>Find us</h3>
+        <p><b>123 Collins Street, Melbourne VIC 3000</b></p>
+        <p>Convenient parking right at the clinic, so getting in and out with your pet is easy.</p>
+      </div>
+      <div class="visit-card">
+        <h3><span class="ico">📞</span>Get in touch</h3>
+        <p>Phone: <b>(03) 9000 0000</b></p>
+        <p>New patients are always welcome. Bring any previous vet records if you have them and we'll take care of the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Ready to give your pet exceptional care?</h2>
+      <p>Request an appointment online in under a minute, or ask Pawsy anything first.</p>
+      <a class="btn btn-white" href="https://calendly.com/pawsy1432/30min" target="_blank" rel="noopener">Request Appointment</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo">Animal Hospital of Melbourne</div>
+    <p>123 Collins Street, Melbourne VIC 3000 · (03) 9000 0000</p>
+    <p class="credit">Concept demo with Pawsy chat assistant, built by <a href="https://glenix2025.github.io/glenda-deguzman" target="_blank" rel="noopener">Glenn DG.</a> Fictional demo clinic created for demonstration purposes.</p>
+  </div>
+</footer>
+
+<!-- ============ PAWSY WIDGET ============ -->
+<div id="pawsy-widget" role="dialog" aria-label="Pawsy chat assistant" aria-hidden="true">
+  <div class="pawsy-header">
+    <div class="pawsy-avatar" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 13.2c-2.9 0-6.2 2-6.2 4.6 0 1.6 1.2 2.6 2.9 2.6 1.1 0 2-.5 3.3-.5s2.2.5 3.3.5c1.7 0 2.9-1 2.9-2.6 0-2.6-3.3-4.6-6.2-4.6zM6.6 8.4c-.3-1.6-1.5-2.7-2.7-2.5-1.2.2-1.9 1.7-1.6 3.3.3 1.6 1.5 2.7 2.7 2.5 1.2-.3 1.9-1.7 1.6-3.3zm3.1-1.1c1.3 0 2.3-1.4 2.3-3.1S11 1.1 9.7 1.1 7.4 2.5 7.4 4.2s1 3.1 2.3 3.1zm7.7 3.6c1.2.2 2.4-.9 2.7-2.5.3-1.6-.4-3-1.6-3.3-1.2-.2-2.4.9-2.7 2.5-.3 1.6.4 3.1 1.6 3.3zm-3.1-3.6c1.3 0 2.3-1.4 2.3-3.1s-1-3.1-2.3-3.1S12 2.5 12 4.2s1 3.1 2.3 3.1z" transform="translate(0 1)"/></svg>
+    </div>
+    <div>
+      <div class="pawsy-title">Pawsy</div>
+      <div class="pawsy-sub"><span class="pawsy-dot" aria-hidden="true"></span>Animal Hospital of Melbourne</div>
+    </div>
+  </div>
+  <div class="pawsy-messages" id="pawsy-messages" aria-live="polite"></div>
+  <div class="pawsy-inputrow">
+    <input id="pawsy-input" type="text" placeholder="Type your message…" aria-label="Type your message" autocomplete="off">
+    <button id="pawsy-send" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><path d="M2.4 21.6 22.8 12 2.4 2.4l.01 7.2L16.8 12 2.41 14.4z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div id="pawsy-teaser" role="button" tabindex="0" aria-label="Open chat to book an appointment">
+  <button id="pawsy-teaser-close" aria-label="Dismiss message">&#10005;</button>
+  <div class="teaser-text">Hi! Click me to book an appointment</div>
+  <div class="teaser-brand">Powered By
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13.2c-2.9 0-6.2 2-6.2 4.6 0 1.6 1.2 2.6 2.9 2.6 1.1 0 2-.5 3.3-.5s2.2.5 3.3.5c1.7 0 2.9-1 2.9-2.6 0-2.6-3.3-4.6-6.2-4.6zM6.6 8.4c-.3-1.6-1.5-2.7-2.7-2.5-1.2.2-1.9 1.7-1.6 3.3.3 1.6 1.5 2.7 2.7 2.5 1.2-.3 1.9-1.7 1.6-3.3zm3.1-1.1c1.3 0 2.3-1.4 2.3-3.1S11 1.1 9.7 1.1 7.4 2.5 7.4 4.2s1 3.1 2.3 3.1zm7.7 3.6c1.2.2 2.4-.9 2.7-2.5.3-1.6-.4-3-1.6-3.3-1.2-.2-2.4.9-2.7 2.5-.3 1.6.4 3.1 1.6 3.3zm-3.1-3.6c1.3 0 2.3-1.4 2.3-3.1s-1-3.1-2.3-3.1S12 2.5 12 4.2s1 3.1 2.3 3.1z"/></svg>
+    <b>Pawsy</b>
+  </div>
+</div>
+
+<button id="pawsy-launcher" aria-label="Open chat with Pawsy" aria-expanded="false">
+  <svg class="paw" viewBox="0 0 24 24"><path d="M12 13.2c-2.9 0-6.2 2-6.2 4.6 0 1.6 1.2 2.6 2.9 2.6 1.1 0 2-.5 3.3-.5s2.2.5 3.3.5c1.7 0 2.9-1 2.9-2.6 0-2.6-3.3-4.6-6.2-4.6zM6.6 8.4c-.3-1.6-1.5-2.7-2.7-2.5-1.2.2-1.9 1.7-1.6 3.3.3 1.6 1.5 2.7 2.7 2.5 1.2-.3 1.9-1.7 1.6-3.3zm3.1-1.1c1.3 0 2.3-1.4 2.3-3.1S11 1.1 9.7 1.1 7.4 2.5 7.4 4.2s1 3.1 2.3 3.1zm7.7 3.6c1.2.2 2.4-.9 2.7-2.5.3-1.6-.4-3-1.6-3.3-1.2-.2-2.4.9-2.7 2.5-.3 1.6.4 3.1 1.6 3.3zm-3.1-3.6c1.3 0 2.3-1.4 2.3-3.1s-1-3.1-2.3-3.1S12 2.5 12 4.2s1 3.1 2.3 3.1z" transform="translate(0 1)"/></svg>
+  <svg class="close" viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z" transform="translate(1.5 0)"/></svg>
+</button>
+
+<script>
+/*BRAIN-START*/
+// ============================================================
+// PAWSY BRAIN — rule based conversation logic
+// Preserves the four Voiceflow playbooks:
+// Clinic FAQs, Appointment Coordinator, Safety & Boundaries,
+// Staff Follow-up Coordinator.
+// ============================================================
+const PAWSY_CONFIG = {
+  clinicName: "Animal Hospital of Melbourne",
+  bookingLink: "https://calendly.com/pawsy1432/30min",
+  clinicPhone: "(03) 9000 0000",
+  clinicEmail: "hello@ahmelbourne.com.au"
+};
+
+const EMERGENCY_LINE = "This sounds urgent. Please call us immediately at (03) 9000 0000 or go to your nearest emergency vet. Do not wait.";
+const UNSURE_LINE = "Our vet team will be the best person to advise. Let me help you book an appointment.";
+const PRICING_NOTE = "Final pricing depends on your pet's size, age, and specific needs, so we'll confirm the exact cost at your visit.";
+const CLOSER = "Is there anything else I can help you with today?";
+
+// 12 question FAQ knowledge base (Melbourne — hours and prices are editable placeholders)
+const FAQ = {
+  hours: "Animal Hospital of Melbourne is open Monday to Friday 8am to 5pm and Saturday 9am to 2pm, and we're closed Sundays and public holidays. " + CLOSER,
+  location: "You'll find Animal Hospital of Melbourne at 123 Collins Street, Melbourne VIC 3000, with convenient parking right at the door. " + CLOSER,
+  parking: "There's convenient parking right at the clinic, so getting in and out with your pet is easy. " + CLOSER,
+  services: "At Animal Hospital of Melbourne we offer general consultations, vaccinations, spay and neuter, dental care, microchipping, soft tissue surgery, skin and allergy care, and senior pet health checks. Would you like to book one of these? " + CLOSER,
+  pricing: "At Animal Hospital of Melbourne, a standard consultation is typically $75 to $95, vaccinations range from $95 to $130, desexing from $250 to $450, and a dental clean from $350 to $600, based on typical Melbourne clinic rates. " + PRICING_NOTE + " " + CLOSER,
+  payment: "Animal Hospital of Melbourne accepts card, cash, Apple Pay, and electronic payments. " + CLOSER,
+  walkins: "We recommend booking ahead at Animal Hospital of Melbourne so we can give your pet unhurried attention, though we do our best to fit in walk ins, and genuine emergencies are always seen first. " + CLOSER,
+  newpatients: "New patients are very welcome at Animal Hospital of Melbourne! Just bring any previous vet records if you have them, and we'll take care of the rest. " + CLOSER,
+  insurance: "Yes, Animal Hospital of Melbourne accepts all major Australian pet insurance policies. Most policies work on a reimbursement model, where you pay upfront and claim online with your receipts, but we also support GapOnly, which processes eligible claims on the spot so you only pay the gap before you leave. " + CLOSER,
+  insurance_cover: "Australian insurers generally offer three levels of cover: Accident Only for sudden injuries like snake bites or fractures, Accident and Illness for injuries plus medical conditions, and Comprehensive, which can add Routine Care extras for things like vaccinations, teeth cleaning, and desexing. We can't recommend a specific policy, but we're happy to provide any paperwork your insurer needs. " + CLOSER,
+  doctors: "Our team at Animal Hospital of Melbourne includes Dr. Amelia Santos, our Co-Owner focused on wellness and preventative care, Dr. Marcus Bell, our surgery and dentistry vet, and Dr. Priya Nair, our feline and senior pet specialist. Would you like to book a visit with one of them? " + CLOSER,
+  vaccinations: "Animal Hospital of Melbourne runs full puppy, kitten and adult vaccination programs, with boosters usually due annually. Our vets will map out the right schedule at your visit. " + CLOSER,
+  desexing: "Yes, Animal Hospital of Melbourne performs desexing for cats and dogs, usually as a day procedure with a morning drop off and afternoon pick up. " + CLOSER,
+  microchip: "Microchipping at Animal Hospital of Melbourne is quick, done in a standard consult, and includes registration on the Victorian pet registry. " + CLOSER,
+  after_hours: "Outside opening hours, Animal Hospital of Melbourne recommends the Animal Emergency Centre network in Melbourne, and you can always call us at (03) 9000 0000 during clinic hours. " + CLOSER
+};
+
+// --- keyword sets ---
+const EMERGENCY_WORDS = [
+  "emergency","urgent","bleeding","vomiting blood","poison","poisoned","toxic",
+  "chocolate","xylitol","collapsed","collapse","seizure","seizing","unconscious",
+  "not breathing","can't breathe","cant breathe","struggling to breathe",
+  "hit by a car","hit by car","snake","choking","swallowed","bloat","bloated stomach",
+  "heatstroke","won't wake","wont wake","dying","pale gums","paralysis tick"
+];
+const MEDICAL_WORDS = [
+  "limping","itchy","scratching","vomit","diarrhoea","diarrhea","not eating",
+  "sneezing","coughing","lump","rash","worms","fleas","ticks","shaking","lethargic",
+  "what's wrong","whats wrong","diagnose","medication","treatment","sick","unwell","symptom"
+];
+const BOOKING_WORDS = ["book","appointment","reschedul","schedule","see a vet","see the vet","come in","bring my","visit","check up","checkup","check-up"];
+const FOLLOWUP_WORDS = ["call me","callback","call back","ring me","phone me","contact me","front desk","talk to a human","speak to someone","talk to staff"];
+const LINKFAIL_WORDS = ["link doesn't work","link doesnt work","link not working","link isn't working","link isnt working","can't open","cant open","won't open","wont open","doesn't load","doesnt load","link is broken","broken link","not loading"];
+const SPECIES = ["dog","puppy","cat","kitten","rabbit","bunny","bird","parrot","guinea pig","ferret","hamster","reptile","lizard","snake pet"];
+
+function hasAny(text, words){ return words.some(w => text.includes(w)); }
+
+function cleanName(raw){
+  let t = raw.trim()
+    .replace(/^(hi|hey|hello|it's|its|i am|i'm|im|my name is|my name's|the name is|name is|this is|call me|sure|ok|okay)[,\s]+/i, "")
+    .replace(/[.!?]+$/,"").trim();
+  const word = t.split(/\s+/).slice(0,2).join(" ");
+  return word.replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function cleanPetName(raw){
+  let t = raw.trim()
+    .replace(/^(his name is|her name is|his name's|her name's|she's called|he's called|she is called|he is called|it's|its|my (dog|cat|puppy|kitten|rabbit|bird)('s name)? is|name is|called|the name is|this is)[,\s]*/i, "")
+    .replace(/[.!?]+$/,"").trim();
+  const word = t.split(/\s+/).slice(0,2).join(" ");
+  return word.replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// Detects "my other dog Rex" / "my cat Milo" style mentions mid conversation
+function detectPetSwitch(text){
+  const m = text.match(/\bmy\s+(?:other\s+|second\s+)?(dog|puppy|cat|kitten|rabbit|bunny|bird)\s*,?\s*(?:named\s+|called\s+)?([A-Z][a-z]+)/i)
+        || text.match(/\b(?:actually|also)[^.]*\b(dog|puppy|cat|kitten|rabbit|bunny|bird)\b[^.]*?\b(?:named|called)\s+([A-Za-z]+)/i);
+  if (m) return { species: m[1].toLowerCase(), name: m[2].replace(/\b\w/g, c => c.toUpperCase()) };
+  return null;
+}
+
+function bookingOfferMessage(){
+  return "Great, I'd love to help get that booked at " + PAWSY_CONFIG.clinicName +
+    "! You can grab a time that suits you right here: " + PAWSY_CONFIG.bookingLink +
+    " First, may I have your name?";
+}
+
+function newState(){
+  return { stage:"idle", owner:null, pet:null, species:null, reason:null, urgent:false };
+}
+
+// Main brain: takes user text + state, returns { replies:[...], state }
+function pawsyBrain(input, state){
+  const text = input.toLowerCase();
+  const s = Object.assign({}, state);
+  const replies = [];
+
+  // ---- SAFETY & BOUNDARIES: emergency always checked first ----
+  if (hasAny(text, EMERGENCY_WORDS)){
+    s.urgent = true;
+    s.stage = "idle";
+    replies.push(EMERGENCY_LINE);
+    replies.push("I've flagged this as <strong>URGENT</strong> and our " + PAWSY_CONFIG.clinicName + " front desk will follow up with you as a priority. Please make that call first.");
+    return { replies, state: s };
+  }
+
+  // ---- Link trouble (any stage) ----
+  if (hasAny(text, LINKFAIL_WORDS)){
+    s.stage = "linkfail";
+    replies.push("No worries, here's the direct link: " + PAWSY_CONFIG.bookingLink + ". If that doesn't work on your end, I can have our front desk reach out to you instead.");
+    return { replies, state: s };
+  }
+  if (s.stage === "linkfail"){
+    if (hasAny(text, ["yes","yeah","please","front desk","reach out","call","contact"])){
+      s.stage = "followup_contact";
+      replies.push("Of course! What's the best way and time for our team to reach you?");
+      return { replies, state: s };
+    }
+    s.stage = "idle";
+    replies.push("Wonderful, glad the link worked! " + CLOSER);
+    return { replies, state: s };
+  }
+
+  // ---- STAFF FOLLOW-UP: collecting contact preference ----
+  if (s.stage === "followup_contact"){
+    s.contact = input.trim();
+    s.stage = "idle";
+    const who = s.owner ? s.owner : "you";
+    const pet = s.pet ? " about " + s.pet : "";
+    let summary = "I've noted everything down and our front desk will reach out to " + who + pet + " shortly to confirm, usually within a few hours during clinic hours.";
+    if (s.urgent) summary = "<strong>URGENT:</strong> " + summary;
+    replies.push(summary + " " + CLOSER);
+    return { replies, state: s };
+  }
+
+  // ---- APPOINTMENT COORDINATOR: intake flow, one question at a time ----
+  if (s.stage === "awaiting_owner"){
+    s.owner = cleanName(input);
+    s.stage = "awaiting_pet";
+    replies.push("Lovely to meet you, " + s.owner + "! And what's your pet's name?");
+    return { replies, state: s };
+  }
+  if (s.stage === "awaiting_pet"){
+    const sw = detectPetSwitch(input);
+    if (sw){ s.pet = sw.name; s.species = sw.species; }
+    else { s.pet = cleanPetName(input); }
+    s.stage = "awaiting_reason";
+    replies.push("Aww, " + s.pet + " is in good hands. What's the reason for the visit?");
+    return { replies, state: s };
+  }
+  if (s.stage === "awaiting_reason"){
+    // Mid conversation topic switch: owner mentions a different pet
+    const sw = detectPetSwitch(input);
+    if (sw && sw.name !== s.pet){
+      s.pet = sw.name; s.species = sw.species;
+      replies.push("No problem at all, I've updated that to your " + sw.species + " <strong>" + sw.name + "</strong>. And what's the reason for " + sw.name + "'s visit?");
+      return { replies, state: s };
+    }
+    if (hasAny(text, MEDICAL_WORDS)){
+      s.reason = input.trim();
+      s.stage = "idle";
+      replies.push("Noted, thanks " + (s.owner || "") + "! I can't advise on symptoms myself, but our vets absolutely can, so please pick a time here and we'll see " + (s.pet || "your pet") + " soon: " + PAWSY_CONFIG.bookingLink + " " + CLOSER);
+      return { replies, state: s };
+    }
+    s.reason = input.trim();
+    s.stage = "idle";
+    replies.push("Perfect, I've got <strong>" + (s.pet || "your pet") + "</strong> down for: " + s.reason + ". Grab a time that suits you here and we'll see you at " + PAWSY_CONFIG.clinicName + ": " + PAWSY_CONFIG.bookingLink + " " + CLOSER);
+    return { replies, state: s };
+  }
+
+  // ---- Staff follow-up request (explicit) ----
+  if (hasAny(text, FOLLOWUP_WORDS)){
+    s.stage = "followup_contact";
+    replies.push("Happy to arrange that with the " + PAWSY_CONFIG.clinicName + " team. What's the best way and time for our front desk to reach you?");
+    return { replies, state: s };
+  }
+
+  if (hasAny(text, ["price","pricing","cost","how much","fee","charge","expensive"])) { replies.push(FAQ.pricing); return { replies, state: s }; }
+
+  // ---- Booking intent ----
+  if (hasAny(text, BOOKING_WORDS)){
+    s.stage = "awaiting_owner";
+    // If they already gave a pet in the same message, remember it
+    const sw = detectPetSwitch(input);
+    if (sw){ s.pet = sw.name; s.species = sw.species; }
+    replies.push(bookingOfferMessage());
+    return { replies, state: s };
+  }
+
+  // ---- CLINIC FAQs ----
+  if (hasAny(text, ["after hours","after-hours","emergency vet near","overnight"])) { replies.push(FAQ.after_hours); return { replies, state: s }; }
+  if (hasAny(text, ["hour","open","close","opening","when are you"])) { replies.push(FAQ.hours); return { replies, state: s }; }
+  if (hasAny(text, ["parking","park my car","tram","public transport"])) { replies.push(FAQ.parking); return { replies, state: s }; }
+  if (hasAny(text, ["where","address","location","located","find you","directions"])) { replies.push(FAQ.location); return { replies, state: s }; }
+  if (hasAny(text, ["accident only","accident and illness","comprehensive cover","routine care","types of cover","levels of cover","cover options","which insurance","what insurance should"])) { replies.push(FAQ.insurance_cover); return { replies, state: s }; }
+  if (hasAny(text, ["insurance","gaponly","gap only","reimburs","claim on the spot"])) { replies.push(FAQ.insurance); return { replies, state: s }; }
+  if (hasAny(text, ["payment","pay by","pay with","how do i pay","can i pay","credit card","debit card","apple pay","electronic payment","afterpay"])) { replies.push(FAQ.payment); return { replies, state: s }; }
+  if (hasAny(text, ["walk in","walk-in","walkin","without an appointment","no appointment"])) { replies.push(FAQ.walkins); return { replies, state: s }; }
+  if (hasAny(text, ["new patient","new client","first time","never been"])) { replies.push(FAQ.newpatients); return { replies, state: s }; }
+  if (hasAny(text, ["vaccin","booster","shots","needles"])) { replies.push(FAQ.vaccinations); return { replies, state: s }; }
+  if (hasAny(text, ["desex","spay","neuter","castrat"])) { replies.push(FAQ.desexing); return { replies, state: s }; }
+  if (hasAny(text, ["microchip","chip my"])) { replies.push(FAQ.microchip); return { replies, state: s }; }
+  if (hasAny(text, ["doctor","veterinarian","your vets","vet team","meet the team","who is the vet","dr santos","dr bell","dr nair","your staff"])) { replies.push(FAQ.doctors); s.stage = "medical_offer"; return { replies, state: s }; }
+  if (hasAny(text, ["service","offer","what do you do","what can you do","groom","surgery","dental"])) { replies.push(FAQ.services); return { replies, state: s }; }
+
+  // ---- SAFETY & BOUNDARIES: medical questions get declined, offered booking ----
+  if (hasAny(text, MEDICAL_WORDS)){
+    replies.push(UNSURE_LINE + " Would you like the booking link?");
+    s.stage = "medical_offer";
+    return { replies, state: s };
+  }
+  if (s.stage === "medical_offer"){
+    s.stage = "idle";
+    if (hasAny(text, ["yes","yeah","sure","please","ok","okay"])){
+      s.stage = "awaiting_owner";
+      replies.push(bookingOfferMessage());
+      return { replies, state: s };
+    }
+    replies.push("No problem at all. " + CLOSER);
+    return { replies, state: s };
+  }
+
+  // ---- Greetings ----
+  if (hasAny(text, ["hi","hello","hey","good morning","good afternoon","g'day","gday"]) && text.length < 30){
+    replies.push("Hello! You've reached <strong>Pawsy</strong> at " + PAWSY_CONFIG.clinicName + ". I can help with clinic info, pricing, or booking a visit for your pet. What can I do for you?");
+    return { replies, state: s };
+  }
+  if (hasAny(text, ["thank","thanks","cheers","that's all","thats all","no that","nothing else","bye","goodbye"])){
+    replies.push("You're so welcome! " + PAWSY_CONFIG.clinicName + " looks forward to seeing you and your pet. Have a lovely day! 🐾");
+    return { replies, state: s };
+  }
+
+  // ---- Fallback ----
+  replies.push(UNSURE_LINE + " I can also help with our hours, location, services, or pricing at " + PAWSY_CONFIG.clinicName + ".");
+  return { replies, state: s };
+}
+/*BRAIN-END*/
+
+// ============================================================
+// UI LAYER
+// ============================================================
+(function(){
+  const launcher = document.getElementById("pawsy-launcher");
+  const widget = document.getElementById("pawsy-widget");
+  const messagesEl = document.getElementById("pawsy-messages");
+  const inputEl = document.getElementById("pawsy-input");
+  const sendBtn = document.getElementById("pawsy-send");
+
+  let state = newState();
+  let greeted = false;
+
+  function linkify(text){
+    return text.replace(/(https?:\/\/[^\s]+?)([.,!?]?)(\s|$)/g,
+      '<a href="$1" target="_blank" rel="noopener">Book here at Animal Hospital of Melbourne ↗</a>$2$3');
+  }
+
+  function addMessage(text, who){
+    const div = document.createElement("div");
+    div.className = "msg " + who;
+    if (who === "bot") div.innerHTML = linkify(text);
+    else div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addChips(options){
+    const wrap = document.createElement("div");
+    wrap.className = "pawsy-chips";
+    options.forEach(opt => {
+      const b = document.createElement("button");
+      b.className = "pawsy-chip";
+      b.type = "button";
+      b.textContent = opt;
+      b.addEventListener("click", () => { wrap.remove(); handleUserInput(opt); });
+      wrap.appendChild(b);
+    });
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function showTyping(){
+    const t = document.createElement("div");
+    t.className = "typing";
+    t.innerHTML = "<span></span><span></span><span></span>";
+    messagesEl.appendChild(t);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return t;
+  }
+
+  function botReply(userText){
+    const typing = showTyping();
+    const delay = 550 + Math.min(userText.length * 12, 700);
+    setTimeout(() => {
+      typing.remove();
+      const result = pawsyBrain(userText, state);
+      state = result.state;
+      result.replies.forEach((r, i) => {
+        setTimeout(() => addMessage(r, "bot"), i * 420);
+      });
+    }, delay);
+  }
+
+  function handleUserInput(text){
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    addMessage(trimmed, "user");
+    inputEl.value = "";
+    botReply(trimmed);
+  }
+
+  sendBtn.addEventListener("click", () => handleUserInput(inputEl.value));
+  inputEl.addEventListener("keydown", e => { if (e.key === "Enter") handleUserInput(inputEl.value); });
+
+  launcher.addEventListener("click", () => {
+    const open = widget.classList.toggle("open");
+    launcher.classList.toggle("open", open);
+    launcher.setAttribute("aria-expanded", open);
+    widget.setAttribute("aria-hidden", !open);
+    launcher.setAttribute("aria-label", open ? "Close chat with Pawsy" : "Open chat with Pawsy");
+    if (open){
+      inputEl.focus();
+      if (!greeted){
+        greeted = true;
+        const typing = showTyping();
+        setTimeout(() => {
+          typing.remove();
+          addMessage("Hi there, welcome to <strong>Animal Hospital of Melbourne</strong>! I'm Pawsy, your friendly clinic assistant. 🐾 How can I help you and your pet today?", "bot");
+          addChips(["Book a visit", "Opening hours", "Where are you?", "Pricing"]);
+        }, 700);
+      }
+    }
+  });
+})();
+
+// Proactive teaser popup behavior
+(function(){
+  const teaser = document.getElementById("pawsy-teaser");
+  const closeBtn = document.getElementById("pawsy-teaser-close");
+  const launcher = document.getElementById("pawsy-launcher");
+  const widget = document.getElementById("pawsy-widget");
+  let dismissed = false;
+
+  setTimeout(() => {
+    if (!dismissed && !widget.classList.contains("open")) teaser.classList.add("show");
+  }, 2500);
+
+  function hideTeaser(){ dismissed = true; teaser.classList.remove("show"); }
+
+  closeBtn.addEventListener("click", e => { e.stopPropagation(); hideTeaser(); });
+  launcher.addEventListener("click", hideTeaser);
+  teaser.addEventListener("click", () => {
+    hideTeaser();
+    if (!widget.classList.contains("open")) launcher.click();
+  });
+  teaser.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); hideTeaser(); if (!widget.classList.contains("open")) launcher.click(); }
+  });
+})();
+</script>
+</body>
+</html>
